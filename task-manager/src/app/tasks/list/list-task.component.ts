@@ -9,7 +9,8 @@ import { TaskService, Task } from '../shared';
 export class ListTaskComponent implements OnInit {
 
   tasks: Task[];
-  constructor(private taskService: TaskService) { }
+  constructor(
+    private taskService: TaskService) { }
 
   ngOnInit(): void {
     this.tasks = this.listAll();
@@ -19,4 +20,18 @@ export class ListTaskComponent implements OnInit {
     return this.taskService.listAll();
   }
 
+  remove($event: any, task: Task): void {
+    $event.preventDefault();
+    if (confirm('Are you sure to remove the task "' + task.name + '"?')) {
+      this.taskService.remove(task.id);
+      this.tasks = this.listAll();
+    }
+  }
+
+  updateStatus(task: Task): void {
+    if (confirm('Are you sure about update the status from task "' + task.name + '"?')) {
+      this.taskService.updateStatus(task.id);
+      this.tasks = this.listAll();
+    }
+  }
 }
