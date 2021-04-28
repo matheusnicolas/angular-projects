@@ -60,4 +60,52 @@ export class TicTacToeService {
     this._showBoard = true;
   }
 
+  play(positionX: number, positionY: number): void {
+
+    if (this.board[positionX][positionY] !== this.EMPTY || this.victory) {
+      return;
+    }
+
+    this.board[positionX][positionY] = this._player;
+    this.numMovements++;
+    this.victory = this.endGame(positionX, positionY, this.board, this._player);
+    this._player = (this._player === this.X) ? this.O : this.X;
+
+    if (!this.victory && this.numMovements < 9) {
+      this.cpuPlay();
+    }
+
+    if (this.victory !== false) {
+      this._showFinal = true;
+    }
+
+    if (!this.victory && this.numMovements === 9) {
+      this._player = 0;
+      this._showFinal = true;
+    }
+  }
+
+  endGame(line: number, column: number, board: any, player: number): void {
+    let end: any = false;
+
+    if (board[line][0] === player && board[line][1] === player && board[line][2] === player) {
+      end = [[line, 0], [line, 1], [line, 2]]
+    }
+
+    if (board[0][column] === player && board[1][column] === player && board[2][column] === player) {
+      end = [[0, column], [1, column], [2, column]]
+    }
+
+    if (board[0][0] === player && board[1][1] === player && board[2][2] === player) {
+      end = [[0, 0], [1, 1], [2, 2]]
+    }
+
+    if (board[0][2] === player && board[1][1] === player && board[2][0] === player) {
+      end = [[0,2], [1, 1], [2, 0]]
+    }
+
+    return end;
+
+  }
+
 }
