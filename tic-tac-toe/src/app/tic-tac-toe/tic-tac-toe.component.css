@@ -5,11 +5,11 @@ div {
 	font-family: 'Press Start 2P', cursive;
 }
 
-div.principal {
+div.main {
 	margin-top: 100px;
 }
 
-a.botao {
+a.button {
 	margin-top: 100px;
 	font-size: 20px;
 	background-color: lightgreen;
@@ -56,6 +56,6 @@ ul li {
 	background-image: url('/assets/images/o.png');
 }
 
-.kz-cor-vitoria {
-	 background-color: lightgreen;
+.kz-cor-victory {
+	background-color: lightgreen;
 }

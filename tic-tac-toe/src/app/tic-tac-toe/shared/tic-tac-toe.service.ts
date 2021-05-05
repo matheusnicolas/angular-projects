@@ -88,19 +88,27 @@ export class TicTacToeService {
   endGame(line: number, column: number, board: any, player: number) {
     let end: any = false;
 
-    if (board[line][0] === player && board[line][1] === player && board[line][2] === player) {
+    if (board[line][0] === player &&
+      board[line][1] === player &&
+      board[line][2] === player) {
       end = [[line, 0], [line, 1], [line, 2]]
     }
 
-    if (board[0][column] === player && board[1][column] === player && board[2][column] === player) {
+    if (board[0][column] === player &&
+      board[1][column] === player &&
+      board[2][column] === player) {
       end = [[0, column], [1, column], [2, column]]
     }
 
-    if (board[0][0] === player && board[1][1] === player && board[2][2] === player) {
+    if (board[0][0] === player &&
+      board[1][1] === player &&
+      board[2][2] === player) {
       end = [[0, 0], [1, 1], [2, 2]]
     }
 
-    if (board[0][2] === player && board[1][1] === player && board[2][0] === player) {
+    if (board[0][2] === player &&
+      board[1][1] === player &&
+      board[2][0] === player) {
       end = [[0,2], [1, 1], [2, 0]]
     }
 
@@ -119,7 +127,7 @@ export class TicTacToeService {
       let moves: any = [];
       for (let i = 0; i < this.BOARD_SIZE; i++) {
         for (let j = 0; j < this.BOARD_SIZE; j++) {
-          if (this.board[i][i] === this.EMPTY) {
+          if (this.board[i][j] === this.EMPTY) {
             moves.push([i, j])
           }
         }
@@ -177,7 +185,7 @@ export class TicTacToeService {
   }
 
 
-  newJogo(): void {
+  newGame(): void {
     this.initialize();
     this._showFinal = false;
     this._showStart = false;
