@@ -1,22 +1,28 @@
 {
   "tasks": [
     {
-      "text": "Almoçar",
-      "day": "12:00",
+      "text": "Live",
+      "day": "at 5:00 PM",
       "reminder": true,
       "id": 1
     },
     {
-      "text": "Estudar",
-      "day": "14:00",
+      "text": "Gym",
+      "day": "at 6:00 PM",
       "reminder": true,
       "id": 2
     },
     {
-      "text": "Pegar perfume",
-      "day": "18:00",
+      "text": "Sleep",
+      "day": "at 10:00 PM",
       "reminder": true,
       "id": 3
+    },
+    {
+      "text": "Work",
+      "day": "From 8:00 AM to ¨06:00 PM",
+      "reminder": true,
+      "id": 4
     }
   ]
 }
